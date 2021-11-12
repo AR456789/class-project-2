@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Draft</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" />
+  </head>
+  <style>
+      .row {
+          padding-left: 200px;
+      }
+  </style>
+  <body>
+    <div class="container">
+      <center>
+          <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title"> <div id = "temperature"> Degrees </div> <div> <a href="#" id="C"> C°</a> </div> <div><a href="#" id="F"> F°</a></div> </h5>
+            <p class="card-text"> <div id = "city-name"> City Name </div> <br> <div id = "time"> Time </div> </p>
+          </div>
+        </div>
+      </div>
+    </center>
+
+      <center>
+        <form id="search-form">
+          <input type="search" placeholder="City search bar" id="search-bar"/> <br>
+          <input type="submit" value="search" id="search-button"/>
+        </form>
+      </br>
+        <button id = "current-location"> Current Location </button>
+        <div id = "location-data"> Click above for information about where you are</div>
+      </center>
+      <center>
+      <div class="row">
+        <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title">Tomorrow</h5>
+            <p class="card-text">Degrees</p>
+          </div>
+        </div>
+        <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title">Day 2</h5>
+            <p class="card-text">Degrees</p>
+          </div>
+        </div>
+
+        <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title">Day 3</h5>
+            <p class="card-text">Degrees</p>
+          </div>
+        </div>
+
+        <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title">Day 4</h5>
+            <p class="card-text">Degrees</p>
+          </div>
+        </div>
+
+        <div class="column-2" style="width: 10rem">
+          <div class="card-body">
+            <h5 class="card-title">Day 5</h5>
+            <p class="card-text">Degrees</p>
+          </div>
+        </div>
+    </div>
+</center>
+    <script src="src/index.js"></script>
+  </body>
+</html>
