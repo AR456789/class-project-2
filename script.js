@@ -52,16 +52,17 @@ farenheightMeasure.addEventListener("click", farenheightDisplay);
 
 //week5 1
 function Temperature(response) {
+  console.log(response.data.weather[0].description);
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("#temperature");
+  let temperatureDisplay = document.querySelector("#temperature");
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
   let location = response.data.name;
   alert(
     `It is ${temperature} C° in ${location} at the longitude of ${longitude} and the latitude of ${latitude}.`
   );
-  temperatureElement.innerHTML = `${temperature} C°`;
+  temperatureDisplay.innerHTML = `${temperature} C°`;
 }
 
 function displayTemperature(response) {
@@ -76,6 +77,8 @@ function displayTemperature(response) {
 
 let currentCity3 = document.querySelector("#search-form");
 currentCity3.addEventListener("submit", displayTemperature);
+
+// week 7 add weather description
 
 //
 function searchApi(place) {
