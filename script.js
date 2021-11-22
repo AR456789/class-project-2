@@ -79,7 +79,21 @@ let currentCity3 = document.querySelector("#search-form");
 currentCity3.addEventListener("submit", displayTemperature);
 
 // week 7 add weather description
+function Description(response) {
+  let description = response.data.weather[0].description;
+  let descriptionDisplay = document.querySelector("#description");
+  descriptionDisplay.innerHTML = `${description}`;
+}
 
+function displayDescription(response) {
+  let city2 = document.querySelector("#search-bar");
+  let apiKey = "14ae7857ff700daefb749e38ecc205df";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city2.value}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(Description);
+}
+
+let currentCity4 = document.querySelector("#search-form");
+currentCity4.addEventListener("submit", displayDescription);
 //
 function searchApi(place) {
   let apiKey = "14ae7857ff700daefb749e38ecc205df";
