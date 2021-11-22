@@ -81,8 +81,9 @@ currentCity3.addEventListener("submit", displayTemperature);
 // week 7 add weather description
 function Description(response) {
   let description = response.data.weather[0].description;
+  let windspeed = response.data.wind.speed;
   let descriptionDisplay = document.querySelector("#description");
-  descriptionDisplay.innerHTML = `${description}`;
+  descriptionDisplay.innerHTML = `${description} and a windspeed of ${windspeed} kilometers per hour`;
 }
 
 function displayDescription(response) {
