@@ -79,10 +79,16 @@ let currentCity3 = document.querySelector("#search-form");
 currentCity3.addEventListener("submit", displayTemperature);
 
 // week 7 add weather description
-function Description(response) {
+function DescriptionAndIcon(response) {
   let description = response.data.weather[0].description;
   let windspeed = response.data.wind.speed;
   let descriptionDisplay = document.querySelector("#description");
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   descriptionDisplay.innerHTML = `${description} and a windspeed of ${windspeed} kilometers per hour`;
 }
 
@@ -90,11 +96,12 @@ function displayDescription(response) {
   let city2 = document.querySelector("#search-bar");
   let apiKey = "14ae7857ff700daefb749e38ecc205df";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city2.value}&units=metric`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(Description);
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(DescriptionAndIcon);
 }
 
 let currentCity4 = document.querySelector("#search-form");
 currentCity4.addEventListener("submit", displayDescription);
+
 //
 function searchApi(place) {
   let apiKey = "14ae7857ff700daefb749e38ecc205df";
