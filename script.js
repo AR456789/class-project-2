@@ -32,8 +32,8 @@ function citySearch(event) {
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", citySearch);
 //3.
-function celsiusDisplay(event2) {
-  event2.preventDefault();
+function celsiusDisplay(event) {
+  event.preventDefault();
   let celsiusChange = document.querySelector("#temperature");
   celsiusChange.innerHTML = "12.2°";
 }
@@ -41,20 +41,25 @@ function celsiusDisplay(event2) {
 let celsiusMeasure = document.querySelector("#C");
 celsiusMeasure.addEventListener("click", celsiusDisplay);
 
-function farenheightDisplay(event3) {
-  event3.preventDefault();
+function farenheightDisplay(event) {
+  event.preventDefault();
+  let farenheightTemperature = (celsiusTemperature * 9) / 5 + 32;
   let farenheightChange = document.querySelector("#temperature");
-  farenheightChange.innerHTML = "54°";
+  farenheightChange.innerHTML = farenheightTemperature;
 }
 
 let farenheightMeasure = document.querySelector("#F");
 farenheightMeasure.addEventListener("click", farenheightDisplay);
 
+let celsiusTemperature = null;
 //week5 1
 function Temperature(response) {
   console.log(response.data.weather[0].description);
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
+  //celsiusTemperature = response.data.main.temp;
+  //let farenheightChange = document.querySelector("#temperature");
+  //farenheightChange.innerHTML = celsiusTemperature;
   let temperatureDisplay = document.querySelector("#temperature");
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
@@ -116,3 +121,12 @@ function locationClick(event) {
 
 let currentCityClick = document.querySelector("#current-location");
 currentCityClick.addEventListener("click", locationClick);
+
+// week 7 unit conversion
+
+function displayFarenheightTemperature(event) {
+  event.preventDefault();
+  alert("link clicked");
+}
+let farenheightLink = document.querySelector("#F");
+farenheightLink.addEventListener("click", displayFarenheightTemperature);
