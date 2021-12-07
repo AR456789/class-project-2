@@ -45,8 +45,6 @@ function displayFarenheightTemperature(event) {
   temperatureElement.innerHTML = `${farenheightTemperature2} °F`;
 }
 
-let celsiusTemperature2 = null;
-
 let farenheightLink = document.querySelector("#F");
 farenheightLink.addEventListener("click", displayFarenheightTemperature);
 
@@ -64,9 +62,6 @@ celsiusLink.addEventListener("click", displayCelsiusTemperature);
 function Temperature(response) {
   console.log(response.data.weather[0].description);
   console.log(response.data);
-  //celsiusTemperature2 = response.data.main.temp;
-  //let farenheightChange = document.querySelector("#temperature");
-  //farenheightChange.innerHTML = celsiusTemperature;
   temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector("#temperature");
   let longitude = response.data.coord.lon;
