@@ -30,5 +30,15 @@ h1 {
   text-decoration: wavy;
   font-weight: 600;
 }
+.active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
 //-webkit-text-stroke-width: 1px;
 // -webkit-text-stroke-color: blueviolet;

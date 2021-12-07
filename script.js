@@ -31,35 +31,43 @@ function citySearch(event) {
 }
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", citySearch);
-//3.
-function celsiusDisplay(event) {
+
+// week 7 unit conversion
+
+let temperature = null;
+
+function displayFarenheightTemperature(event) {
   event.preventDefault();
-  let celsiusChange = document.querySelector("#temperature");
-  celsiusChange.innerHTML = "12.2°";
+  let temperatureElement = document.querySelector("#temperature");
+  farenheightLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let farenheightTemperature2 = (temperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${farenheightTemperature2} °F`;
 }
 
-let celsiusMeasure = document.querySelector("#C");
-celsiusMeasure.addEventListener("click", celsiusDisplay);
+let celsiusTemperature2 = null;
 
-function farenheightDisplay(event) {
+let farenheightLink = document.querySelector("#F");
+farenheightLink.addEventListener("click", displayFarenheightTemperature);
+
+function displayCelsiusTemperature(event) {
   event.preventDefault();
-  let farenheightTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let farenheightChange = document.querySelector("#temperature");
-  farenheightChange.innerHTML = farenheightTemperature;
+  celsiusLink.classList.add("active");
+  farenheightLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = `${temperature} °C`;
 }
 
-let farenheightMeasure = document.querySelector("#F");
-farenheightMeasure.addEventListener("click", farenheightDisplay);
-
-let celsiusTemperature = null;
+let celsiusLink = document.querySelector("#C");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 //week5 1
 function Temperature(response) {
   console.log(response.data.weather[0].description);
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  //celsiusTemperature = response.data.main.temp;
+  //celsiusTemperature2 = response.data.main.temp;
   //let farenheightChange = document.querySelector("#temperature");
   //farenheightChange.innerHTML = celsiusTemperature;
+  temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector("#temperature");
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
@@ -121,12 +129,3 @@ function locationClick(event) {
 
 let currentCityClick = document.querySelector("#current-location");
 currentCityClick.addEventListener("click", locationClick);
-
-// week 7 unit conversion
-
-function displayFarenheightTemperature(event) {
-  event.preventDefault();
-  alert("link clicked");
-}
-let farenheightLink = document.querySelector("#F");
-farenheightLink.addEventListener("click", displayFarenheightTemperature);
