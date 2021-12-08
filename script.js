@@ -67,6 +67,8 @@ function Temperature(response) {
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
   let location = response.data.name;
+  farenheightLink.classList.remove("active");
+  celsiusLink.classList.remove("active");
   alert(
     `It is ${temperature} C° in ${location} at the longitude of ${longitude} and the latitude of ${latitude}.`
   );

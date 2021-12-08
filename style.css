@@ -38,6 +38,7 @@ h1 {
 
 .active:hover {
   text-decoration: none;
+  color: black;
 }
 
 //-webkit-text-stroke-width: 1px;
