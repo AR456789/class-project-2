@@ -32,6 +32,33 @@ function citySearch(event) {
 let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", citySearch);
 
+// week 8 forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+      <img
+      src=""
+      alt=""
+      width="42"
+      />
+      <div class="weather-forecast-temperatures">
+      <span class="weather-forecast-temperatures-max"> 18 </span>
+      <span class="weather-forecast-temperatures-min"> 18 </span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 // week 7 unit conversion
 
 let temperature = null;
@@ -73,6 +100,7 @@ function Temperature(response) {
     `It is ${temperature} C° in ${location} at the longitude of ${longitude} and the latitude of ${latitude}.`
   );
   temperatureDisplay.innerHTML = `${temperature} C°`;
+  displayForecast();
 }
 
 function displayTemperature(response) {
