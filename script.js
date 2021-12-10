@@ -33,7 +33,8 @@ let currentCity = document.querySelector("#search-form");
 currentCity.addEventListener("submit", citySearch);
 
 // week 8 forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -85,6 +86,13 @@ function displayCelsiusTemperature(event) {
 
 let celsiusLink = document.querySelector("#C");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "14ae7857ff700daefb749e38ecc205df";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 //week5 1
 function Temperature(response) {
   console.log(response.data.weather[0].description);
@@ -100,7 +108,7 @@ function Temperature(response) {
     `It is ${temperature} C° in ${location} at the longitude of ${longitude} and the latitude of ${latitude}.`
   );
   temperatureDisplay.innerHTML = `${temperature} C°`;
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function displayTemperature(response) {
