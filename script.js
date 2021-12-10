@@ -49,7 +49,6 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML += `<div class="col-2">
       <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-      ${index}
       <img
       src="http://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
@@ -60,10 +59,10 @@ function displayForecast(response) {
       <div class="weather-forecast-temperatures">
       <span class="weather-forecast-temperatures-max"> ${Math.round(
         forecastDay.temp.max
-      )}° </span>
+      )}°C </span>
       <span class="weather-forecast-temperatures-min"> ${Math.round(
         forecastDay.temp.min
-      )}° </span>
+      )}°C </span>
       </div>
     </div>
   `;
