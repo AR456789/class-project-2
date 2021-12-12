@@ -109,7 +109,9 @@ function Temperature(response) {
   console.log(response.data.weather[0].description);
   console.log(response.data);
   temperature = Math.round(response.data.main.temp);
+  city = response.data.name;
   let temperatureDisplay = document.querySelector("#temperature");
+  let cityName = document.querySelector("#city-name");
   let longitude = response.data.coord.lon;
   let latitude = response.data.coord.lat;
   let location = response.data.name;
@@ -119,6 +121,7 @@ function Temperature(response) {
     `It is ${temperature} C° in ${location} at the longitude of ${longitude} and the latitude of ${latitude}.`
   );
   temperatureDisplay.innerHTML = `${temperature} C°`;
+  cityName.innerHTML = `${city}`;
   getForecast(response.data.coord);
 }
 
